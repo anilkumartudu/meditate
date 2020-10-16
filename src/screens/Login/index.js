@@ -10,8 +10,8 @@ const Container = styled.View`
 `;
 
 const Text = styled.Text`
-  font-weight: ${(props) => props.fw};
-  font-size: ${(props) => props.fs};
+  font-weight: ${(props) => (props.fw ? props.fw : 'normal')};
+  font-size: ${(props) => (props.fs ? props.fs : '14px')};
   margin: 10px;
 `;
 
@@ -29,16 +29,14 @@ const Login = (props) => {
       <Text fw="900" fs="20px">
         Welcome home
       </Text>
-      <Text fw="normal" fs="14px">
-        Login to continue
-      </Text>
+      <Text>Login to continue</Text>
       <TextInput
         placeholder="Username"
-        placeholderTextColor={Theme.colors.TEXT_INPUT}
+        placeholderTextColor={Theme.colors.TEXT_INPUT_PLACEHOLDER}
       />
       <TextInput
         placeholder="Password"
-        placeholderTextColor={Theme.colors.TEXT_INPUT}
+        placeholderTextColor={Theme.colors.TEXT_INPUT_PLACEHOLDER}
       />
       <Button
         title="Login"

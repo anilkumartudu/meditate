@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
+import Sound from 'react-native-sound';
 import {Button, Icon} from '../../components';
 
 const Container = styled.View`
@@ -14,6 +15,48 @@ const Text = styled.Text`
 `;
 
 const Timer = (props) => {
+  let woosh;
+
+  const audioList = [
+    {
+      title: 'Basu',
+      url: require('../../assets/sound/bensound_india.mp3'),
+    },
+    {
+      title: 'Sakya',
+      url: require('../../assets/sound/bensound_littleplanet.mp3'),
+    },
+    {
+      title: 'Ombu',
+      url: require('../../assets/sound/bensound_november.mp3'),
+    },
+    {
+      title: 'Zhada',
+      url: require('../../assets/sound/bensound_relaxing.mp3'),
+    },
+  ];
+
+  useEffect(() => {
+    const {sound, time} = props.route.params;
+    audioList.map((item) => {
+      if (sound === item.title) {
+        woosh = new Sound(item.url, (error, sound) => {
+          if (error) {
+            return;
+          } else {
+            woosh.play();
+          }
+        });
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      woosh.release();
+    };
+  }, []);
+
   return (
     <Container>
       <View

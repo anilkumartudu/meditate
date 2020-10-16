@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 
 const MainContainer = () => {
   return (
-    <Stack.Navigator initialRouteName="SetTimeAndSound" headerMode="none">
+    <Stack.Navigator initialRouteName="Login" headerMode="none">
       <Stack.Screen name="AdjustVolume" component={AdjustVolumeScreen} />
       <Stack.Screen name="EndGoal" component={EndGoalScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
