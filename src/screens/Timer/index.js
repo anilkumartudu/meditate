@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
 import Sound from 'react-native-sound';
@@ -16,7 +16,9 @@ const Text = styled.Text`
 
 const Timer = (props) => {
   let woosh;
-
+  const [minutesCounter, setMinuteCounter] = useState('00');
+  const [secondsCounter, setSecondsCounter] = useState('00');
+  const [pauseContinue, setPauseContinue] = useState(false);
   const audioList = [
     {
       title: 'Basu',
@@ -56,6 +58,8 @@ const Timer = (props) => {
       woosh.release();
     };
   }, []);
+
+  const onTimerStart = () => {};
 
   return (
     <Container>

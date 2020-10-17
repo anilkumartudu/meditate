@@ -99,9 +99,12 @@ const SetTimeAndSound = (props) => {
           }}
           onPress={() => {
             if (sound == '') {
-              ToastAndroid.show('Please select an audio', ToastAndroid.SHORT);
+              ToastAndroid.show('Please select an audio.', ToastAndroid.SHORT);
             } else if (time == '') {
-              ToastAndroid.show('Please select a duration', ToastAndroid.SHORT);
+              ToastAndroid.show(
+                'Please select a duration.',
+                ToastAndroid.SHORT,
+              );
             } else {
               props.navigation.navigate('Timer', {sound, time});
             }
@@ -113,7 +116,7 @@ const SetTimeAndSound = (props) => {
           <Badge
             title="5min"
             onPress={() => {
-              setTime('5min');
+              setTime('5');
               setIs5min(true);
               setIs10min(false);
               setIs15min(false);
@@ -125,7 +128,7 @@ const SetTimeAndSound = (props) => {
           <Badge
             title="10min"
             onPress={() => {
-              setTime('10min');
+              setTime('10');
               setIs5min(false);
               setIs10min(true);
               setIs15min(false);
@@ -137,7 +140,7 @@ const SetTimeAndSound = (props) => {
           <Badge
             title="15min"
             onPress={() => {
-              setTime('15min');
+              setTime('15');
               setIs5min(false);
               setIs10min(false);
               setIs15min(true);
@@ -149,7 +152,7 @@ const SetTimeAndSound = (props) => {
           <Badge
             title="20min"
             onPress={() => {
-              setTime('20min');
+              setTime('20');
               setIs5min(false);
               setIs10min(false);
               setIs15min(false);
@@ -161,7 +164,7 @@ const SetTimeAndSound = (props) => {
           <Badge
             title="30min"
             onPress={() => {
-              setTime('30min');
+              setTime('30');
               setIs5min(false);
               setIs10min(false);
               setIs15min(false);
